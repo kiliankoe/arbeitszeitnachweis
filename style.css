@@ -1,0 +1,50 @@
+body {
+	font-family: Helvetica;
+}
+
+
+
+/* TITLE */
+
+.title p.left {
+	font-weight: bold;
+}
+
+.title p.right {
+	color: #FF0000;
+	float: right;
+}
+
+
+
+/* HEAD */
+
+head {
+	border: 0.5px solid black;
+}
+
+
+/* KALENDER */
+
+.kalender {
+	border: 1px solid black;
+}
+
+
+/* UNTERSCHRIFT */
+
+.unterschrift p.left {
+
+}
+
+.unterschrift p.right {
+	float: right;
+}
+
+
+/* FOOTER */
+
+.footer {
+	background-color: #DEDEDE;
+	font-size: 8pt;
+}

@@ -2,11 +2,69 @@
 <html>
 <head>
 	<title>Arbeitszeitnachweis gem. Mindestlohngesetz</title>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8">
 	<link rel="stylesheet" type="text/css" href="style.css" media="screen">
 	<link rel="stylesheet" type="text/css" href="print.css" media="print">
 	<script type="text/javascript" src="stuff.js"></script>
 </head>
 <body>
+	<div class="title">
+		<p class="left">Arbeitszeitnachweis gem. Mindestlohngesetz</p>
+		<p class="right">Anlage zum RS D2/1/2015</p>
+	</div>
 
+	<div class="head">
+		<form>
+			<p>Monat: <input name="monat"></p>
+			<p>Name, Vorname <input name="name"></p>
+			<p>Geburtsdatum: <input name="geburtsdatum"></p>
+			<p>unmittelbare/r Vorgesetzte/r bzw. Betreuer/in: <input name="vorgesetzter"></p>
+			<p>Struktureinheit: <input name="struktureinheit"></p>
+			<p>vereinbarte Wochenarbeitszeit: <input name="arbeitszeit"></p>
+			<p>Jahr: <input name="jahr"></p>
+			<p>Personalnummer: <input name="personalnummer"></p>
+			<p>Kostenstelle: <input name="kostenstelle"></p>
+			<p>Vertragslaufzeit: <input name="laufzeit"></p>
+		</form>
+	</div>
+
+	<div class="kalender">
+		<table border="1" id="kalender">
+			<tr>
+				<th>Kalendertag</th>
+				<th>Kommen<sup>1</sup></th>
+				<th>Gehen<sup>2</sup></th>
+				<th>tatsächlich geleistete Arbeitsstunden pro Tag<sup>3</sup></th>
+				<th>Bemerkungen<sup>4</sup></th>
+			</tr>
+			<tr>
+				<td>1.</td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td colspan="3">Gesamtstundenzahl</td>
+				<td></td>
+				<td></td>
+			</tr>
+		</table>
+	</div>
+
+	<div class="unterschrift">
+		<p class="left">Datum, Unterschrift Beschäftigte/r</p>
+		<p class="right">Datum, Unterschrift Betreuer/in bzw. Vorgesetzte/r</p>
+	</div>
+
+	<div class="footer">
+		<p><sup>1</sup>erstes Erscheinen am Arbeitsplatz am Tag</p>
+		<p><sup>2</sup>endgültiges Verlassen des Arbeitsplatzes am Tag</p>
+		<p><sup>3</sup>Bei U, K, M, F ist hier die jew. durchschn. wöchentl. Arbeitszeit pro Wochenarbeitstag einzutragen. Diese Tage müssen nicht nachgearbeitet werden!</p>
+		<p>Die Mindestpausenzeit von 30 min. nach 6 Arbeitsstunden/ 45 min. bei mehr als 9 Arbeitsstunden/ Tag (&sect; 4 ArbZeitG) gelten nicht als Arbeitszeit.</p>
+		<p>Die vertraglich vereinbarte Wochenarbeitszeit darf nicht unter- oder überschritten werden!</p>
+		<p>Berechnungsbeispiel: Kommen: 8:00 Uhr, Gehen: 16:00 Uhr, tats. Tätigkeit: 10:00 - 12:00 Uhr u. 13:00 - 14:00 Uhr => einzutragen bei tats. Arbeitszeit: 3 h</p>
+		<p><sup>4</sup>bei Urlaub (U), Krankheit (K), Mutterschutz (M), Feiertag (F) ist hier der jeweilige Buchstabe einzutragen</p>
+	</div>
 </body>
 </html>
