@@ -2,7 +2,7 @@
 
 ### Was ist das hier?
 
-Eine digitale Kopie des Formulars für den Arbeitszeitnachweis nach dem neuem Mindestlohngesetz, der seit dem 01. Januar 2015 von jedem geringfügig Beschäftigten einmal monatlich bei seinem Arbeitgeber abgegeben werden muss.
+Eine digitale Kopie des Formulars für den Arbeitszeitnachweis nach dem neuem Mindestlohngesetz für SHK Stellen an der TU Dresden, der seit dem 01. Januar 2015 von jedem geringfügig Beschäftigten einmal monatlich bei seinem Arbeitgeber abgegeben werden muss.
 
 ### Warum?
 
