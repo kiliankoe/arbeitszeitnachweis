@@ -13,7 +13,7 @@
 		<p class="right">Anlage zum RS D2/1/2015</p>
 	</div>
 
-	<div class="head">
+	<!--<div class="head">
 		<form>
 			<p id="pmonat"><label for="monat">Monat:</label> <input id="monat" name="monat"></p>
 			<p id="pname"><label for="name">Name, Vorname:</label> <input id="name" name="name"></p>
@@ -25,6 +25,44 @@
 			<p id="ppersonalnummer"><label for="personalnummer">Personalnummer:</label> <input id="personalnummer" name="personalnummer"></p>
 			<p id="pkostenstelle"><label for="kostenstelle">Kostenstelle:</label> <input id="kostenstelle" name="kostenstelle"></p>
 			<p id="plaufzeit"><label for="laufzeit">Vertragslaufzeit:</label> <input id="laufzeit" name="laufzeit"></p>
+		</form>
+	</div>-->
+	<div class="head">
+		<form>
+			<table id="head">
+				<col id="head0">
+				<col id="head1"/>
+				<col id="head2"/>
+				<col id="head3"/>
+				<col id="head4"/>
+				<tr>
+					<th>&nbsp;</th>
+					<th><label for="monat">Monat:</label></th><td><input id="monat" name="monat"></td>
+					<th><label for="jahr">Jahr:</label></th><td><input id="jahr" name="jahr"></td>
+				</tr>
+				<tr>
+					<th><label for="name">Name, Vorname:</label></th><td colspan="2"><input id="name" name="name"></td>
+					<th><label for="personalnummer">Personalnummer:</label></th><td><input id="geburtsdatum" name="geburtsdatum"></td>
+				</tr>
+				<tr>
+					<th><label for="geburtsdatum">Geburtsdatum:</label></th><td><input id="name" name="name"></td>
+					<th>&nbsp;</th>
+					<th><label for="kostenstelle">Kostenstelle:</label></th><td><input id="kostenstelle" name="kostenstelle"></td>
+				</tr>
+				<tr>
+					<th colspan="2"><label for="vorgesetzter">unmittelbare/r Vorgesetzte/r bzw. Betreuer/in:</label></th>
+					<td colspan="3"><input id="vorgesetzter" name="vorgesetzter"></td>
+				</tr>
+				<tr>
+					<th><label for="struktureinheit">Struktureinheit:</label></th><td colspan="2"><input id="struktureinheit" name="struktureinheit"></td>
+					<th><label for="laufzeit">Vertragslaufzeit:</label></th><td><input id="laufzeit" name="laufzeit"></td>
+				</tr>
+				<tr>
+					<th colspan="2"><label for="arbeitszeit">vereinbarte Wochenarbeitszeit:</label></th>
+					<td><input id="arbeitszeit" name="arbeitszeit"></td>
+					<th colspan="2">&nbsp;</th>
+				</tr>
+			</table>
 		</form>
 	</div>
 
