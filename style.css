@@ -1,8 +1,13 @@
 body {
 	font-family: Helvetica;
+	width: 20cm; /* css for print rocks */
+	margin-left: 4.2cm;
+	font-size: 8pt;
 }
 
-
+body > * {
+	width: 14.5cm;
+}
 
 /* TITLE */
 
@@ -44,12 +49,37 @@ head {
 
 /* KALENDER */
 
-.kalender {
-	border: 1px solid black;
+#kalender {
+	border: 2px solid black;
 	clear: both;
+	border-collapse: collapse;
+	width: 14.5cm;
 }
 
+#kalender td, #kalender th {
+	border: 1px solid black;
+	font-weight: normal;
+	text-align: left;
+	vertical-align: bottom;
+	padding-top: 5pt;
+}
 
+#kalender tr:first-child th {
+	vertical-align: middle;
+	text-align: center;
+}
+
+#kalender th {
+	background-color: #eee;
+}
+
+#kalendertag, #kommen, #gehen {
+	width: 10%;
+}
+
+#stunden {
+	width: 20%;
+}
 
 /* UNTERSCHRIFT */
 
@@ -66,6 +96,6 @@ head {
 /* FOOTER */
 
 .footer {
-	background-color: #DEDEDE;
-	font-size: 8pt;
+	background-color: #eee;
+	font-size: 6pt;
 }
