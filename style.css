@@ -39,11 +39,15 @@ body > * {
 input {
 	border: none;
 	width: 100%;
-	height: 9pt;
+	height: 95%;
+	max-width: 95%;
 	/*
 	font-family: Comic Sans, Comic Sans MS, cursive;
 	font-weight: bold;
 	*/
+	/*-webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+	box-sizing: border-box;*/
 	font-size: 8pt;
 }
 
@@ -54,11 +58,15 @@ input#struktureinheit, input#laufzeit {
 #head {
 	border: 1px solid black;
 	clear: both;
-	border-collapse: collapse;
+	/*border-collapse: collapse;*/
 	width: 18cm;
 	height: 4.6cm;
 	margin-bottom: 4px;
 }
+
+/*#head tr * {
+	border: 0 !important;
+}*/
 
 #head th {
 	background: #eee;
@@ -96,6 +104,30 @@ input#struktureinheit, input#laufzeit {
 
 #head3, #head4 {
 	width: 17%;
+}
+
+.notop {
+	border-top: 0 !important;
+}
+
+.nobottom {
+	border-bottom: 0 !important;
+}
+
+.noright {
+	border-right: 0 !important;
+}
+
+.extratop {
+	border-top: 1px solid black !important;
+}
+
+.extrabottom {
+	border-bottom: 1px solid black !important;
+}
+
+.extraleft {
+	border-left: 1px solid black !important;
 }
 
 #monatlabel {
@@ -158,7 +190,7 @@ input#struktureinheit, input#laufzeit {
 }
 
 #unterschrift td {
-	width: 51.9%;
+	width: 50.95%;
 	height: 14pt;
 }
 
