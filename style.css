@@ -61,6 +61,9 @@ body > * {
 	height: 100%;
 	padding: 0;
 	margin: 0;
+	font-family: Comic Sans, Comic Sans MS, cursive;
+	font-weight: bold;
+	font-size: 10pt;
 }
 
 #head0 {
