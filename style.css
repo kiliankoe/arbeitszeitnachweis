@@ -1,11 +1,11 @@
 @page {
-	size: auto;   /* auto is the initial value */
+	size: auto;
 	margin: 0;
 }
 
 body {
 	font-family: Univers Light, "Univers 45 Light", Helvetica;
-	width: 21cm; /* css for print rocks */
+	width: 21cm;
 	margin-left: 5cm;
 	margin-top: 1.5cm;
 	font-size: 9pt;
@@ -32,6 +32,17 @@ body > * {
 	float: right;
 	padding-right: 30px;
 	font-size: 12pt;
+}
+
+input {
+	border: none;
+	width: 100%;
+	height: 100%;
+	padding: 0;
+	margin: 0;
+	font-family: Comic Sans, Comic Sans MS, cursive;
+	font-weight: bold;
+	font-size: 10pt;
 }
 
 /* HEAD */
@@ -61,18 +72,6 @@ body > * {
 
 #head th label {
 	padding-bottom: -50px;
-}
-
-#head input {
-	border: none;
-	width: 100%;
-	height: 100%;
-	padding: 0;
-	margin: 0;
-	/* ಠ_ಠ */
-	/*font-family: Comic Sans, Comic Sans MS, cursive;*/
-	/*font-weight: bold;*/
-	font-size: 10pt;
 }
 
 #head0 {
@@ -140,19 +139,6 @@ body > * {
 
 #gesamtzahl th {
 	font-weight: bold;
-}
-
-input#bemerkung {
-	border: none;
-	width: 100%;
-	height: 100%;
-	padding: 0;
-	margin: 0;
-	/* ಠ_ಠ */
-	/*font-family: Comic Sans, Comic Sans MS, cursive;*/
-	/*font-weight: bold;*/
-	/*font-size: 10pt;*/
-	border-collapse: collapse;
 }
 
 /* UNTERSCHRIFT */
