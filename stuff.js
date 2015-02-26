@@ -32,7 +32,13 @@ generateStuff = function () {
 	var zellen = document.querySelectorAll("td + td");
 
 	for (var i = 1; i < zellen.length - 1; i+=3) {
-		zellen[i].innerHTML = Math.ceil(stundenzahl/31);
+		if (stundenzahl != "") {
+			var value = stundenzahl/31
+			value = +value.toFixed(2);
+			zellen[i].innerHTML = value;
+		} else {
+			zellen[i].innerHTML = "";
+		}
 	};
 
 	gesamtzahl[0].innerHTML = stundenzahl;
