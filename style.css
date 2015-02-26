@@ -16,7 +16,7 @@ body > * {
 }
 
 sup {
-	font-size: 60%;
+	font-size: 65%;
 }
 
 /* TITLE */
@@ -36,13 +36,14 @@ sup {
 	color: #FF0000;
 	float: right;
 	padding-right: 30px;
-	font-size: 12pt;
+	font-size: 11pt;
 }
 
 /* HEAD */
 
 input {
 	border: none;
+	margin-left: 2% !important;
 	width: 95%;
 	height: 9pt;
 	max-width: 95%;
@@ -87,7 +88,7 @@ input#struktureinheit, input#laufzeit {
 
 #head td {
 	padding: 0;
-	border: 1px solid black;
+	border: .75px solid black;
 }
 
 #head th label {
@@ -124,15 +125,15 @@ input#struktureinheit, input#laufzeit {
 }
 
 .extratop {
-	border-top: 1px solid black !important;
+	border-top: .75px solid black !important;
 }
 
 .extrabottom {
-	border-bottom: 1px solid black !important;
+	border-bottom: .75px solid black !important;
 }
 
 .extraleft {
-	border-left: 1px solid black !important;
+	border-left: .75px solid black !important;
 }
 
 #monatlabel {
@@ -193,7 +194,7 @@ input#struktureinheit, input#laufzeit {
 }
 
 #unterschrift td {
-	width: 50.95%;
+	width: 51.1%;
 	height: 14pt;
 }
 
@@ -216,7 +217,7 @@ input#struktureinheit, input#laufzeit {
 
 .footer p {
 	margin: 0;
-	margin-top: 3pt;
+	margin-top: 4pt;
 }
 
 .nosup {
