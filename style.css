@@ -5,14 +5,14 @@
 
 body {
 	font-family: Univers Light, "Univers 45 Light", Helvetica;
-	width: 20cm; /* css for print rocks */
-	margin-left: 4.2cm;
-	margin-top: 1cm;
-	font-size: 8pt;
+	width: 21cm; /* css for print rocks */
+	margin-left: 5cm;
+	margin-top: 1.5cm;
+	font-size: 9pt;
 }
 
 body > * {
-	width: 14.5cm;
+	width: 18cm;
 }
 
 /* TITLE */
@@ -24,12 +24,14 @@ body > * {
 .title p.left {
 	font-weight: bold;
 	float: left;
+	font-size: 12pt;
 }
 
 .title p.right {
 	color: #FF0000;
 	float: right;
 	padding-right: 30px;
+	font-size: 12pt;
 }
 
 /* HEAD */
@@ -38,7 +40,8 @@ body > * {
 	border: 1px solid black;
 	clear: both;
 	border-collapse: collapse;
-	width: 14.5cm;
+	width: 18cm;
+	height: 4.6cm;
 	margin-bottom: 4px;
 }
 
@@ -56,14 +59,19 @@ body > * {
 	border: 1px solid black;
 }
 
+#head th label {
+	padding-bottom: -50px;
+}
+
 #head input {
 	border: none;
 	width: 100%;
 	height: 100%;
 	padding: 0;
 	margin: 0;
-	font-family: Comic Sans, Comic Sans MS, cursive;
-	font-weight: bold;
+	/* ಠ_ಠ */
+	/*font-family: Comic Sans, Comic Sans MS, cursive;*/
+	/*font-weight: bold;*/
 	font-size: 10pt;
 }
 
@@ -84,7 +92,7 @@ body > * {
 }
 
 #monatlabel {
-	padding-left: 60px;
+	padding-left: 78px;
 }
 
 /* KALENDER */
@@ -93,7 +101,8 @@ body > * {
 	border: 2px solid black;
 	clear: both;
 	border-collapse: collapse;
-	width: 14.5cm;
+	width: 18cm;
+	margin-bottom: 20px;
 }
 
 #kalender td, #kalender th {
@@ -101,7 +110,7 @@ body > * {
 	font-weight: normal;
 	text-align: left;
 	vertical-align: bottom;
-	padding-top: 6pt;
+	padding-top: 7.4pt;
 }
 
 #kalender tr:first-child th {
@@ -113,8 +122,16 @@ body > * {
 	background-color: #eee;
 }
 
+#kalender #toprow th {
+	padding-bottom: 8pt;
+}
+
 #kalendertag, #kommen, #gehen {
 	width: 10%;
+}
+
+#kommen, #gehen {
+	width: 11.2%;
 }
 
 #stunden {
@@ -131,8 +148,9 @@ input#bemerkung {
 	height: 100%;
 	padding: 0;
 	margin: 0;
-	font-family: Comic Sans, Comic Sans MS, cursive;
-	font-weight: bold;
+	/* ಠ_ಠ */
+	/*font-family: Comic Sans, Comic Sans MS, cursive;*/
+	/*font-weight: bold;*/
 	/*font-size: 10pt;*/
 	border-collapse: collapse;
 }
@@ -140,13 +158,13 @@ input#bemerkung {
 /* UNTERSCHRIFT */
 
 #unterschrift {
-	margin-top: 12pt;
+	margin-top: 20pt;
 	border: 0;
 	border-collapse: collapse;
 }
 
 #unterschrift td {
-	width: 50%;
+	width: 51.9%;
 	height: 14pt;
 }
 
@@ -161,15 +179,17 @@ input#bemerkung {
 /* FOOTER */
 
 .footer {
+	margin-top: 15px;
 	background-color: #eee;
-	font-size: 5pt;
+	font-size: 6pt;
+	padding-bottom: 3px;
 }
 
 .footer p {
 	margin: 0;
-	padding-top: 3pt;
+	margin-top: 3pt;
 }
 
 .nosup {
-	padding-left: 4px;
+	padding-left: 5px;
 }
