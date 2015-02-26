@@ -12,7 +12,8 @@ window.onload = function () {
 
 			if (j == 3) {
 				var bemerkung = document.createElement("input");
-				bemerkung.id = "bemerkung";
+				bemerkung.className = "bemerkung";
+				bemerkung.id = "bemerkung"+i;
 				td.appendChild(bemerkung)
 			}
 
