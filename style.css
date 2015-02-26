@@ -52,7 +52,7 @@ body > * {
 
 #head td {
 	padding: 0;
-	margin: 1px solid black;
+	border: 1px solid black;
 }
 
 #head input {
