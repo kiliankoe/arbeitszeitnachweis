@@ -4,7 +4,7 @@
 }
 
 body {
-	font-family: Helvetica;
+	font-family: Univers Light, Helvetica;
 	width: 20cm; /* css for print rocks */
 	margin-left: 4.2cm;
 	margin-top: 1cm;
@@ -29,6 +29,7 @@ body > * {
 .title p.right {
 	color: #FF0000;
 	float: right;
+	padding-right: 30px;
 }
 
 /* HEAD */
@@ -82,6 +83,10 @@ body > * {
 	width: 17%;
 }
 
+#monatlabel {
+	padding-left: 60px;
+}
+
 /* KALENDER */
 
 #kalender {
@@ -128,7 +133,7 @@ input#bemerkung {
 	margin: 0;
 	font-family: Comic Sans, Comic Sans MS, cursive;
 	font-weight: bold;
-	font-size: 10pt;
+	/*font-size: 10pt;*/
 	border-collapse: collapse;
 }
 
@@ -162,5 +167,5 @@ input#bemerkung {
 
 .footer p {
 	margin: 0;
-	padding-top: 1pt;
+	padding-top: 2pt;
 }
