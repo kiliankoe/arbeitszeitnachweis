@@ -47,15 +47,16 @@ body > * {
 	font-weight: normal;
 	text-align: left;
 	padding: 2px;
-	padding-top: 4px;
+	padding-top: 4pt;
 }
 
 #head td {
 	padding: 0;
+	margin: 1px solid black;
 }
 
 #head input {
-	border: 1px solid black;
+	border: none;
 	width: 100%;
 	height: 100%;
 	padding: 0;
@@ -92,7 +93,7 @@ body > * {
 	font-weight: normal;
 	text-align: left;
 	vertical-align: bottom;
-	padding-top: 5pt;
+	padding-top: 6pt;
 }
 
 #kalender tr:first-child th {
@@ -138,4 +139,8 @@ body > * {
 .footer {
 	background-color: #eee;
 	font-size: 6pt;
+}
+
+.footer p {
+	margin: 0;
 }
