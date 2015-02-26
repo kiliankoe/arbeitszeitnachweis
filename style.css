@@ -1,7 +1,7 @@
-@page { 
-    size: auto;   /* auto is the initial value */ 
-    margin: 0;  
-} 
+@page {
+	size: auto;   /* auto is the initial value */
+	margin: 0;
+}
 
 body {
 	font-family: Helvetica;
@@ -116,6 +116,10 @@ body > * {
 	width: 20%;
 }
 
+#gesamtzahl th {
+	font-weight: bold;
+}
+
 /* UNTERSCHRIFT */
 
 #unterschrift {
@@ -141,9 +145,10 @@ body > * {
 
 .footer {
 	background-color: #eee;
-	font-size: 6pt;
+	font-size: 5pt;
 }
 
 .footer p {
 	margin: 0;
+	padding-top: 1pt;
 }
