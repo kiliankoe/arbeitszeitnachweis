@@ -24,7 +24,7 @@ body > * {
 .title p.left {
 	font-weight: bold;
 	float: left;
-	font-size: 12pt;
+	font-size: 120%;
 }
 
 .title p.right {
@@ -40,8 +40,6 @@ input {
 	border: none;
 	width: 100%;
 	height: 9pt;
-	padding: 0;
-	margin: 0;
 	/*
 	font-family: Comic Sans, Comic Sans MS, cursive;
 	font-weight: bold;
@@ -50,7 +48,7 @@ input {
 }
 
 input#struktureinheit, input#laufzeit {
-	margin-top: 10pt;
+	padding-top: 10pt;
 }
 
 #head {
@@ -85,7 +83,7 @@ input#struktureinheit, input#laufzeit {
 }
 
 #head0 {
-	width: 20%;
+	width: 18%;
 }
 
 #head1 {
@@ -101,7 +99,7 @@ input#struktureinheit, input#laufzeit {
 }
 
 #monatlabel {
-	padding-left: 78px;
+	padding-left: 55pt;
 }
 
 /* KALENDER */
@@ -135,16 +133,16 @@ input#struktureinheit, input#laufzeit {
 	padding-bottom: 8pt;
 }
 
-#kalendertag, #kommen, #gehen {
-	width: 10%;
+#kalendertag {
+	width: 8.5%;
 }
 
 #kommen, #gehen {
-	width: 11.2%;
+	width: 10.5%;
 }
 
 #stunden {
-	width: 20%;
+	width: 21.6%;
 }
 
 #gesamtzahl th {
