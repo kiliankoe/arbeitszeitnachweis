@@ -22,27 +22,6 @@ body > * {
 }
 
 /* HEAD */
-/*
-head {
-	border: 0.5px solid black;
-	position: absolute;
-	clear: both;
-}
-
-.head p {
-	position: absolute
-}
-
-.head p#monat {
-	left: 300px;
-	top: 50px;
-}
-
-.head p#jahr {
-	left: 400px;
-	top: 50px;
-}
-*/
 
 #head {
 	border: 1px solid black;
@@ -124,14 +103,6 @@ head {
 }
 
 /* UNTERSCHRIFT */
-
-.unterschrift p.left {
-
-}
-
-.unterschrift p.right {
-	float: right;
-}
 
 #unterschrift {
 	margin-top: 12pt;
