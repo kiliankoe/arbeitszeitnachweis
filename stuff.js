@@ -40,8 +40,8 @@ generateStuff = function () {
 
 	var verteilung = getRandomDist(months[monat]);
 
-	for (var i = 0; i < verteilung.length; i+=1) {
-		if (stundenzahl != "") {
+	for (var i = 0; i < zellen.length; i+=1) {
+		if (stundenzahl != "" && i < verteilung.length) {
 			if (verteilung[i] == 0) {
 				zellen[i].innerHTML = "";
 			} else {
