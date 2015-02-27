@@ -1,6 +1,12 @@
 window.onload = function () {
 	var gesamtzahl = document.getElementById("gesamtzahl");
+	var monat = document.getElementById("monat");
+	var jahr = document.getElementById("jahr");
 	var kalender = gesamtzahl.parentNode;
+
+	var datum = new Date();
+	jahr.value = datum.getFullYear();
+	monat.value = (datum.getMonth() < 9 ? "0":"") + (datum.getMonth()+1);
 
 	for(var i=1; i<=31; i++) {
 		var tag = document.createElement("tr");
