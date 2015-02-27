@@ -1,6 +1,10 @@
 var kona = new Konami();
 kona.code = function() {
 	document.getElementsByTagName("body")[0].style.fontFamily = "UnifrakturCook";
+	var inputs = document.getElementsByTagName("input");
+	for (var i = inputs.length - 1; i >= 0; i--) {
+		inputs[i].style.fontFamily = "UnifrakturCook";
+	}
 }
 kona.load();
 
