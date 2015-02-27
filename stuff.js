@@ -28,15 +28,19 @@ window.onload = function () {
 }
 
 generateStuff = function () {
+	var jahr = document.getElementById("jahr").value;
+	var months = {"01":31, "02":(jahr%400==0||(jahr%4==0&&jahr%100!=0))?29:28, "03":31, "04":30, "05":31, "06":30, "07":31, "08":31, "09":30, "10":31, "11":30, "12":31};
+
 	var gesamtzahl = document.querySelectorAll("#gesamtzahl td");
 	var stundenzahl = document.getElementById("arbeitszeit").value;
+	var monat = document.getElementById("monat").value;
 
 	var zellen = document.querySelectorAll("td#tagesstunden");
 	var total = 0;
 
-	var verteilung = getRandomDist(31);
+	var verteilung = getRandomDist(months[monat]);
 
-	for (var i = 0; i < zellen.length; i+=1) {
+	for (var i = 0; i < verteilung.length; i+=1) {
 		if (stundenzahl != "") {
 			if (verteilung[i] == 0) {
 				zellen[i].innerHTML = "";
