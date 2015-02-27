@@ -1,3 +1,9 @@
+var kona = new Konami();
+kona.code = function() {
+	document.getElementsByTagName("body")[0].style.fontFamily = "UnifrakturCook";
+}
+kona.load();
+
 window.onload = function () {
 	var gesamtzahl = document.getElementById("gesamtzahl");
 	var monat = document.getElementById("monat");
