@@ -68,7 +68,10 @@ input#struktureinheit, input#laufzeit {
 	/*border-collapse: collapse;*/
 	width: 18cm;
 	height: 4.6cm;
-	margin-bottom: 4px;
+}
+#fuckinggray {
+	background-color: #f3f3f3;
+	height:4px;
 }
 
 /*#head tr * {
