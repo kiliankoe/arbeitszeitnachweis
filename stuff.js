@@ -34,7 +34,9 @@ window.onload = function () {
 				bemerkung.id = "bemerkung"+i;
 				td.appendChild(bemerkung)
 			} else if (j == 2) {
-				td.id = "tagesstunden";
+				var stundeninput = document.createElement("input");
+				stundeninput.id = "tagesstunden";
+				td.appendChild(stundeninput);
 			}
 
 			tag.appendChild(td);
@@ -68,7 +70,7 @@ generateStuff = function () {
 	var stundenzahl = document.getElementById("arbeitszeit").value;
 	var monat = document.getElementById("monat").value;
 
-	var zellen = document.querySelectorAll("td#tagesstunden");
+	var zellen = document.querySelectorAll("input#tagesstunden");
 	var total = 0;
 
 	var verteilung = getRandomDist(months[monat]);
@@ -76,13 +78,13 @@ generateStuff = function () {
 	for (var i = 0; i < zellen.length; i+=1) {
 		if (stundenzahl != "" && i < verteilung.length) {
 			if (verteilung[i] == 0) {
-				zellen[i].innerHTML = "";
+				zellen[i].value = "";
 			} else {
-				zellen[i].innerHTML = verteilung[i];
+				zellen[i].value = verteilung[i];
 				total += verteilung[i];
 			}
 		} else {
-			zellen[i].innerHTML = "";
+			zellen[i].value = "";
 		}
 	}
 
