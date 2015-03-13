@@ -32,10 +32,12 @@ window.onload = function () {
 				var bemerkung = document.createElement("input");
 				bemerkung.className = "bemerkung";
 				bemerkung.id = "bemerkung"+i;
+				bemerkung.type = "text";
 				td.appendChild(bemerkung)
 			} else if (j == 2) {
 				var stundeninput = document.createElement("input");
 				stundeninput.id = "tagesstunden";
+				stundeninput.type = "text";
 				td.appendChild(stundeninput);
 			}
 
@@ -99,14 +101,22 @@ getRandomDist = function (days) {
 	for (var i = days - 1; i >= 0; i--) {
 		dist[i] = 0;
 	}
+	var tage = tagesform.wochentag;
+	var jahr = document.getElementById("jahr").value;
+	var monat = document.getElementById("monat").value-1;
 
 	while (stundenzahl > 0) {
 		//stundenPaket = Math.floor(Math.random() * (stundenzahl+1));
 
 		var tag = Math.floor(Math.random() * days);
-		dist[tag] += stundenPaket;
 
-		stundenzahl -= stundenPaket;
+		// check if day is valid
+		// checkboxes for single calendar days, e.g. holidays, could be added
+		var datum = new Date(jahr, monat, tag+1);
+		if(tage[datum.getDay()].checked) {
+			dist[tag] += stundenPaket;
+			stundenzahl -= stundenPaket;
+		}
 	}
 
 	return dist;

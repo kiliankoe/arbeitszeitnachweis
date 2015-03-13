@@ -40,9 +40,37 @@ sup {
 	font-size: 11pt;
 }
 
+/* SETTINGS */
+
+#settings {
+	border: 1px solid #000;
+	background: #f3f3f3;
+	position: absolute;
+	left: 2mm;
+	top: 2mm;
+	width: 4cm;
+	height: 10cm;
+}
+
+#settings h2 {
+	margin: 0;
+}
+
+#settings input[type=button] {
+	width:90%;
+	margin: 0 5%;
+	border: 1px solid #000;
+}
+
+@media print {
+	#settings {
+		display: none;
+	}
+}
+
 /* HEAD */
 
-input {
+input[type=text] {
 	border: none;
 	margin-left: 2% !important;
 	width: 95%;
