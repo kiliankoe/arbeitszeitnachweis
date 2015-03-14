@@ -92,6 +92,7 @@ input#struktureinheit, input#laufzeit {
 
 #head {
 	border: 1px solid black;
+	border-spacing: 0;
 	clear: both;
 	/*border-collapse: collapse;*/
 	width: 18cm;
