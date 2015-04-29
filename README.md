@@ -7,3 +7,4 @@ Eine digitale Kopie des Formulars für den Arbeitszeitnachweis nach dem neuem Mi
 ### Warum?
 
 Gerade für SHK Stellen an Universitäten sind diese Formulare aufgrund des Aufbaus dieser Stellen mehr oder weniger *nutzlos*. Ein leicht automatisiertes Ausfüllen nimmt einem daher eine kleine Portion Arbeit ab ;)
+
