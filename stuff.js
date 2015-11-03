@@ -72,6 +72,13 @@ generateStuff = function () {
 	var stundenzahl = document.getElementById("arbeitszeit").value;
 	var monat = document.getElementById("monat").value;
 
+	var bemerkungsfelder = document.querySelectorAll("input.bemerkungstext");
+	var bemerkungen = [];
+	for (feld of bemerkungsfelder) {
+		if (feld.value)
+			bemerkungen.push(feld.value);
+	}
+
 	var zellen = document.querySelectorAll("input#tagesstunden");
 	var total = 0;
 
@@ -81,8 +88,11 @@ generateStuff = function () {
 		if (stundenzahl != "" && i < verteilung.length) {
 			if (verteilung[i] == 0) {
 				zellen[i].value = "";
+				document.querySelector("input#bemerkung"+(i+1)).value = "";
 			} else {
 				zellen[i].value = verteilung[i];
+				if (bemerkungen.length > 0)
+					document.querySelector("input#bemerkung"+(i+1)).value = bemerkungen[Math.floor(Math.random()*bemerkungen.length)];
 				total += verteilung[i];
 			}
 		} else {
