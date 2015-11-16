@@ -74,9 +74,10 @@ generateStuff = function () {
 
 	var bemerkungsfelder = document.querySelectorAll("input.bemerkungstext");
 	var bemerkungen = [];
-	for (feld of bemerkungsfelder) {
-		if (feld.value)
-			bemerkungen.push(feld.value);
+	var i;
+	for (i = 0; i < bemerkungsfelder.length; ++i) {
+		if (bemerkungsfelder[i].value)
+			bemerkungen.push(bemerkungsfelder[i].value);
 	}
 
 	var zellen = document.querySelectorAll("input#tagesstunden");
