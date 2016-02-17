@@ -64,7 +64,7 @@ sup {
 	left: 2mm;
 	top: 2mm;
 	width: 4cm;
-	height: 14cm;
+	padding: 5px;
 }
 
 #settings h2 {
@@ -283,5 +283,4 @@ input#struktureinheit, input#laufzeit {
     position: absolute;
     z-index: 1000;
     width:200px;
-    height:150px;
 }

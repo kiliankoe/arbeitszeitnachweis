@@ -18,7 +18,7 @@
 		<h2>Einstellungen</h2>
 		<form id="tagesform">
 			<fieldset name="wochentage">
-				<legend>Wochentage</legend>
+				<legend class="hastooltip">Wochentage (?)<span class="tooltip">Nur angehakte Wochentage werden zufällig mit Stundenwerten gefüllt.</span></legend>
 				<!-- in JavaScript's getDay(), Sunday is 0 – the following order makes things easier. -->
 				<input type="checkbox" name="wochentag" id="sonntag" value="0"/>
 					<label for="sonntag">Sonntag</label><br />
@@ -36,25 +36,25 @@
 					<label for="samstag">Samstag</label><br />
 			</fieldset>
 			<fieldset>
-				<legend class="hastooltip">Zeitberechnung (?)<span class="tooltip">Standardmäßig wird hier von 4,33 Wochen pro Monat (52 Wochen pro Jahr geteilt durch 12 Monate pro Jahr) ausgegangen. Je nach Stelle der Beschäftigung kann das jedoch anders gewollt sein. <b>Vorsicht</b>: Dies beeinflusst die automatisch generierte Arbeitszeit pro Monat!</span></legend>
+				<legend class="hastooltip">Zeitberechnung (?)<span class="tooltip">Standardmäßig wird hier von 4,33 Wochen pro Monat (52 Wochen pro Jahr geteilt durch 12 Monate pro Jahr) ausgegangen. Je nach Stelle der Beschäftigung kann das jedoch anders gewollt sein. <b>Vorsicht</b>: Dies beeinflusst die automatisch generierte Arbeitszeit pro Monat!<br><br>"Arbeitszeit pro Woche" bedeutet, dass die Wochenarbeitszeit pro Woche stimmt und nicht hochgerechnet pro Monat. Beachtet werden allerdings nur Wochen mit mehr als zwei Wochentagen.</span></legend>
 				<input type="radio" class="timeoptions" name="timeoptions" id="timeoption1" value="timeoption1" checked> <label for="timeoption1">4,33 W/M</label><br>
 				<input type="radio" class="timeoptions" name="timeoptions" id="timeoption2" value="timeoption2"> <label for="timeoption2">4 W/M</label><br>
 				<input type="radio" class="timeoptions" name="timeoptions" id="timeoption3" value="timeoption3"> <label for="timeoption3">Arbeitszeit pro Woche</label><br>
 			</fieldset>
 			<fieldset name="cometimes">
-				<legend>Kommen</legend>
+				<legend class="hastooltip">Kommen (?)<span class="tooltip">Werte werden zufällig in der "Kommen" Spalte der Tabelle bei Tagen mit Arbeitszeit eingetragen. Sind keine vorhanden bleibt die Spalte leer.</span></legend>
 				<input type="text" class="cometimestext" id="cometimestext1" placeholder="9:00" />
 				<input type="text" class="cometimestext" id="cometimestext2" placeholder="10:00" />
 				<input type="text" class="cometimestext" id="cometimestext3" placeholder="16:00" />
 			</fieldset>
 			<fieldset name="leavetimes">
-				<legend>Gehen</legend>
+				<legend class="hastooltip">Gehen (?)<span class="tooltip">Werte werden zufällig in der "Gehen" Spalte der Tabelle bei Tagen mit Arbeitszeit eingetragen. Sind keine vorhanden bleibt die Spalte leer.</span></legend>
 				<input type="text" class="leavetimestext" id="leavetimestext1" placeholder="17:00" />
 				<input type="text" class="leavetimestext" id="leavetimestext2" placeholder="18:00" />
 				<input type="text" class="leavetimestext" id="leavetimestext3" placeholder="23:00" />
 			</fieldset>
 			<fieldset name="bemerkungen">
-				<legend>Bemerkungen</legend>
+				<legend class="hastooltip">Bemerkungen (?)<span class="tooltip">Werte werden zufällig in der "Bemerkungen" Spalte der Tabelle bei Tagen mit Arbeitszeit eingetragen. Sind keine vorhanden bleibt die Spalte leer.</span></legend>
 				<input type="text" class="bemerkungstext" id="commenttext1" placeholder="Burger braten" />
 				<input type="text" class="bemerkungstext" id="commenttext2" placeholder="Däumchen drehen" />
 				<input type="text" class="bemerkungstext" id="commenttext3" placeholder="Freizeit finden" />
