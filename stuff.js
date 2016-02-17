@@ -93,27 +93,22 @@ generateStuff = function () {
 	var monat = document.getElementById("monat").value;
 
 	var bemerkungsfelder = document.querySelectorAll("input.bemerkungstext");
+	var cometimesfelder = document.querySelectorAll("input.cometimestext");
+	var leavetimesfelder = document.querySelectorAll("input.leavetimestext");
+
 	var bemerkungen = [];
-	var i;
-	for (i = 0; i < bemerkungsfelder.length; ++i) {
+	var cometimes = [];
+	var leavetimes = [];
+
+	for (var i = 0; i < bemerkungsfelder.length; ++i) {
 		if (bemerkungsfelder[i].value)
 			bemerkungen.push(bemerkungsfelder[i].value);
 	}
-
-	// yay shitty code
-	var cometimesfelder = document.querySelectorAll("input.cometimestext");
-	var cometimes = [];
-	var i;
-	for (i = 0; i < cometimesfelder.length; ++i) {
+	for (var i = 0; i < cometimesfelder.length; ++i) {
 		if (cometimesfelder[i].value)
 			cometimes.push(cometimesfelder[i].value);
 	}
-
-	// nobody gives a crap about maintainability \o/
-	var leavetimesfelder = document.querySelectorAll("input.leavetimestext");
-	var leavetimes = [];
-	var i;
-	for (i = 0; i < leavetimesfelder.length; ++i) {
+	for (var i = 0; i < leavetimesfelder.length; ++i) {
 		if (leavetimesfelder[i].value)
 			leavetimes.push(leavetimesfelder[i].value);
 	}
