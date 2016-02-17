@@ -64,7 +64,7 @@ window.onload = function () {
 
 		kalender.insertBefore(tag, gesamtzahl);
 	}
-	
+
 	// http://stackoverflow.com/questions/901115/how-can-i-get-query-string-values-in-javascript
 	var match,
 		pl     = /\+/g,  // Regex for replacing addition symbol with a space
@@ -75,7 +75,7 @@ window.onload = function () {
 	urlParams = {};
 	while (match = search.exec(query))
 		urlParams[decode(match[1])] = decode(match[2]);
-	
+
 	for (var field in urlParams) {
 		document.getElementById(field).value = urlParams[field];
 	}
@@ -85,7 +85,7 @@ generateStuff = function () {
 	var jahr = document.getElementById("jahr").value;
 	var months = {"01":31, "02":(jahr%400==0||(jahr%4==0&&jahr%100!=0))?29:28, "03":31, "04":30, "05":31, "06":30, "07":31, "08":31, "09":30, "10":31, "11":30, "12":31};
 
-	var gesamtzahl = document.querySelectorAll("#gesamtzahl td");
+	var gesamtzahl = document.querySelectorAll("#gesamtzahlinput");
 	var stundenzahl = document.getElementById("arbeitszeit").value;
 	var monat = document.getElementById("monat").value;
 
@@ -118,7 +118,7 @@ generateStuff = function () {
 		}
 	}
 
-	gesamtzahl[0].innerHTML = total;
+	gesamtzahl[0].value = total;
 }
 
 getRandomDist = function (days) {
