@@ -89,7 +89,7 @@ window.onload = function () {
 		generateStuff();
 }
 
-generateStuff = function () {
+function generateStuff() {
 	var jahr = document.getElementById("jahr").value;
 	var months = {"01":31, "02":(jahr%400==0||(jahr%4==0&&jahr%100!=0))?29:28, "03":31, "04":30, "05":31, "06":30, "07":31, "08":31, "09":30, "10":31, "11":30, "12":31};
 
@@ -120,7 +120,7 @@ generateStuff = function () {
 
 	var zellen = document.querySelectorAll("input#tagesstunden");
 
-	var verteilung = getRandomDist(months[monat]);
+	var verteilung = getDist(months[monat]);
 
 	for (var i = 0; i < zellen.length; i+=1) {
 		if (stundenzahl != "" && i < verteilung.length) {
@@ -146,7 +146,7 @@ generateStuff = function () {
 	calculateTotal();
 }
 
-calculateTotal = function () {
+function calculateTotal() {
 	var gesamtzahl = document.querySelectorAll("#gesamtzahlinput");
 	var zellen = document.querySelectorAll("input#tagesstunden");
 	var total = 0.0;
@@ -162,21 +162,24 @@ calculateTotal = function () {
 	gesamtzahl[0].value = total;
 }
 
-getRandomDist = function (days) {
-	var dist = [];
-	var timeoption = document.querySelector('input[name = "timeoptions"]:checked').value;
-	var stundenzahl_value = 0;
+function getDist(days) {
+	var timeoption = document.querySelector("input[name='timeoptions']:checked").value;
 	switch (timeoption) {
 		case "timeoption1":
-			stundenzahl_value = 4.33;
-			break;
+			return getRandomDist(days, 4.33);
 		case "timeoption2":
-			stundenzahl_value = 4.0;
-			break;
+			return getRandomDist(days, 4.0);
+		case "timeoption3":
+			alert("Diese Zeitoption geht leider noch nicht, sry 😕");
+			return getWeeklyDist(days);
 		default:
-			alert("Diese Zeitoption geht leider noch nicht, sry 😕"); // FIXME
+			console.log("Ya got something freaky going on there with the time options, mate...");
 			break;
 	}
+}
+
+function getRandomDist(days, stundenzahl_value) {
+	var dist = [];
 	var stundenzahl = document.getElementById("arbeitszeit").value * stundenzahl_value;
 	var stundenPaket = 1;
 
