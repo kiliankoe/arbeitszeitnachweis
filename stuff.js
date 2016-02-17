@@ -31,13 +31,13 @@ window.onload = function () {
 			switch (j) {
 				case 0:
 					var comeinput = document.createElement("input");
-					comeinput.id = "kommenzeit";
+					comeinput.id = "kommenzeit"+i;
 					comeinput.type = "text";
 					td.appendChild(comeinput);
 					break;
 				case 1:
 					var leaveinput = document.createElement("input");
-					leaveinput.id = "gehenzeit";
+					leaveinput.id = "gehenzeit"+i;
 					leaveinput.type = "text";
 					td.appendChild(leaveinput);
 					break;
@@ -100,6 +100,24 @@ generateStuff = function () {
 			bemerkungen.push(bemerkungsfelder[i].value);
 	}
 
+	// yay shitty code
+	var cometimesfelder = document.querySelectorAll("input.cometimestext");
+	var cometimes = [];
+	var i;
+	for (i = 0; i < cometimesfelder.length; ++i) {
+		if (cometimesfelder[i].value)
+			cometimes.push(cometimesfelder[i].value);
+	}
+
+	// nobody gives a crap about maintainability \o/
+	var leavetimesfelder = document.querySelectorAll("input.leavetimestext");
+	var leavetimes = [];
+	var i;
+	for (i = 0; i < leavetimesfelder.length; ++i) {
+		if (leavetimesfelder[i].value)
+			leavetimes.push(leavetimesfelder[i].value);
+	}
+
 	var zellen = document.querySelectorAll("input#tagesstunden");
 
 	var verteilung = getRandomDist(months[monat]);
@@ -109,10 +127,16 @@ generateStuff = function () {
 			if (verteilung[i] == 0) {
 				zellen[i].value = "";
 				document.querySelector("input#bemerkung"+(i+1)).value = "";
+				document.querySelector("input#kommenzeit"+(i+1)).value = "";
+				document.querySelector("input#gehenzeit"+(i+1)).value = "";
 			} else {
 				zellen[i].value = verteilung[i];
 				if (bemerkungen.length > 0)
 					document.querySelector("input#bemerkung"+(i+1)).value = bemerkungen[Math.floor(Math.random()*bemerkungen.length)];
+				if (cometimes.length > 0)
+					document.querySelector("input#kommenzeit"+(i+1)).value = cometimes[Math.floor(Math.random()*cometimes.length)];
+				if (leavetimes.length > 0)
+					document.querySelector("input#gehenzeit"+(i+1)).value = leavetimes[Math.floor(Math.random()*leavetimes.length)];
 			}
 		} else {
 			zellen[i].value = "";
