@@ -28,17 +28,34 @@ window.onload = function () {
 		for(var j=0; j<4; j++) {
 			var td = document.createElement("td");
 
-			if (j == 3) {
-				var bemerkung = document.createElement("input");
-				bemerkung.className = "bemerkung";
-				bemerkung.id = "bemerkung"+i;
-				bemerkung.type = "text";
-				td.appendChild(bemerkung)
-			} else if (j == 2) {
-				var stundeninput = document.createElement("input");
-				stundeninput.id = "tagesstunden";
-				stundeninput.type = "text";
-				td.appendChild(stundeninput);
+			switch (j) {
+				case 0:
+					var comeinput = document.createElement("input");
+					comeinput.id = "kommenzeit";
+					comeinput.type = "text";
+					td.appendChild(comeinput);
+					break;
+				case 1:
+					var leaveinput = document.createElement("input");
+					leaveinput.id = "gehenzeit";
+					leaveinput.type = "text";
+					td.appendChild(leaveinput);
+					break;
+				case 2:
+					var stundeninput = document.createElement("input");
+					stundeninput.id = "tagesstunden";
+					stundeninput.type = "text";
+					td.appendChild(stundeninput);
+					break;
+				case 3:
+					var bemerkung = document.createElement("input");
+					bemerkung.className = "bemerkung";
+					bemerkung.id = "bemerkung"+i;
+					bemerkung.type = "text";
+					td.appendChild(bemerkung)
+					break;
+				default:
+					break;
 			}
 
 			tag.appendChild(td);
