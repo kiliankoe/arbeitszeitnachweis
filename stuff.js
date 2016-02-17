@@ -45,6 +45,9 @@ window.onload = function () {
 					var stundeninput = document.createElement("input");
 					stundeninput.id = "tagesstunden";
 					stundeninput.type = "text";
+					stundeninput.addEventListener('change', function() {
+						calculateTotal();
+					});
 					td.appendChild(stundeninput);
 					break;
 				case 3:
@@ -98,7 +101,6 @@ generateStuff = function () {
 	}
 
 	var zellen = document.querySelectorAll("input#tagesstunden");
-	var total = 0;
 
 	var verteilung = getRandomDist(months[monat]);
 
@@ -111,13 +113,28 @@ generateStuff = function () {
 				zellen[i].value = verteilung[i];
 				if (bemerkungen.length > 0)
 					document.querySelector("input#bemerkung"+(i+1)).value = bemerkungen[Math.floor(Math.random()*bemerkungen.length)];
-				total += verteilung[i];
 			}
 		} else {
 			zellen[i].value = "";
 		}
 	}
 
+	calculateTotal();
+}
+
+calculateTotal = function () {
+	var gesamtzahl = document.querySelectorAll("#gesamtzahlinput");
+	var zellen = document.querySelectorAll("input#tagesstunden");
+	var total = 0.0;
+
+	for (var i = 0; i <= zellen.length - 1; i++) {
+		var hours = zellen[i].value;
+		hours = parseFloat(hours);
+		if (isNaN(hours)) {
+			continue;
+		}
+		total += hours;
+	}
 	gesamtzahl[0].value = total;
 }
 
