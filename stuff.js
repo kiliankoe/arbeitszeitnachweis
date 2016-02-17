@@ -82,6 +82,10 @@ window.onload = function () {
 	for (var field in urlParams) {
 		document.getElementById(field).value = urlParams[field];
 	}
+
+	var arbeitszeit = document.getElementById("arbeitszeit").value;
+	if (arbeitszeit)
+		generateStuff();
 }
 
 generateStuff = function () {
