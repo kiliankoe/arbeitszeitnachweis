@@ -81,6 +81,7 @@ window.onload = function () {
 
 	for (var field in urlParams) {
 		document.getElementById(field).value = urlParams[field];
+		document.getElementById(field).checked = true; // needed for the timeoptions
 	}
 
 	var arbeitszeit = document.getElementById("arbeitszeit").value;
@@ -163,7 +164,20 @@ calculateTotal = function () {
 
 getRandomDist = function (days) {
 	var dist = [];
-	var stundenzahl = document.getElementById("arbeitszeit").value * 4.33;
+	var timeoption = document.querySelector('input[name = "timeoptions"]:checked').value;
+	var stundenzahl_value = 0;
+	switch (timeoption) {
+		case "timeoption1":
+			stundenzahl_value = 4.33;
+			break;
+		case "timeoption2":
+			stundenzahl_value = 4.0;
+			break;
+		default:
+			alert("Diese Zeitoption geht leider noch nicht, sry 😕"); // FIXME
+			break;
+	}
+	var stundenzahl = document.getElementById("arbeitszeit").value * stundenzahl_value;
 	var stundenPaket = 1;
 
 	for (var i = days - 1; i >= 0; i--) {
