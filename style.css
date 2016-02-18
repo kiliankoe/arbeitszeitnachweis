@@ -81,6 +81,10 @@ sup {
 	#settings {
 		display: none;
 	}
+
+	.github-corner {
+		display: none;
+	}
 }
 
 /* HEAD */
