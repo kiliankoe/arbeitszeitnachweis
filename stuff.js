@@ -97,6 +97,12 @@ function generateStuff() {
 	var stundenzahl = document.getElementById("arbeitszeit").value;
 	var monat = document.getElementById("monat").value;
 
+	// don't even try to do stuff when entered month is undefined
+	// this fucks with getWeeklyDist if not present
+	if (!(monat in months)) {
+		return;
+	}
+
 	var bemerkungsfelder = document.querySelectorAll("input.bemerkungstext");
 	var cometimesfelder = document.querySelectorAll("input.cometimestext");
 	var leavetimesfelder = document.querySelectorAll("input.leavetimestext");
@@ -123,6 +129,7 @@ function generateStuff() {
 	var verteilung = getDist(months[monat]);
 
 	for (var i = 0; i < zellen.length; i+=1) {
+		// console.log(verteilung.length);
 		if (stundenzahl != "" && i < verteilung.length) {
 			if (verteilung[i] == 0) {
 				zellen[i].value = "";
@@ -170,7 +177,6 @@ function getDist(days) {
 		case "timeoption2":
 			return getRandomDist(days, 4.0);
 		case "timeoption3":
-			alert("Diese Zeitoption geht leider noch nicht, sry 😕");
 			return getWeeklyDist(days);
 		default:
 			console.log("Ya got something freaky going on there with the time options, mate...");
@@ -205,4 +211,93 @@ function getRandomDist(days, stundenzahl_value) {
 	}
 
 	return dist;
+}
+
+function getWeeklyDist(days) {
+	var dist = [];
+	for (var i = days - 1; i >= 0; i--) {
+		dist[i] = 0;
+	}
+
+	var stundenzahl = document.getElementById("arbeitszeit").value;
+
+	var year = document.getElementById("jahr").value;
+	var month = document.getElementById("monat").value-1;
+	var checked_days = tagesform.wochentag;
+
+	var mondays = getMondays(month, year);
+	mondays.forEach(function(monday){
+		var stundenpaket = stundenzahl;
+		while (stundenpaket > 0) {
+			var rand = getRandomInt(monday, monday+6);
+			var validate /* such pun */ = new Date(year, month, rand);
+			// console.log("y:"+year+" m:"+month+" d:"+rand+" -> "+validate);
+			if (checked_days[validate.getDay()].checked) {
+				// console.log("bling!");
+				dist[rand-1] += 1;
+				stundenpaket -= 1;
+				// console.log("validate:" + getDayStr(validate.getDay()) + " shouldbe:" + rand % 7);
+				// console.log("day: " + getDayStr(validate.getDay()) + " - index: " + rand + "=" + dist[rand] + " - stundenpaket: " + stundenpaket);
+			}
+		}
+		// console.log("--------------");
+	});
+	console.log(dist.length);
+	return dist;
+}
+
+// Return zero-indexed dates of mondays in a month, possibly omitting the last one
+// if the month ends in the middle of that week.
+function getMondays(month, year) {
+	var date = new Date(year, month, 0);
+	var month = date.getMonth();
+	var mondays = [];
+
+	date.setDate(1);
+
+	// Get the first monday of month
+	while (date.getDay() !== 1) {
+		date.setDate(date.getDate() + 1);
+	}
+
+	// save this and all other mondays
+	while (date.getMonth() === month && date.getDate() < 27) { // skipping mondays after the 28th, as partial weeks are stupid
+		mondays.push(date.getDate() - 1); // -1 because final date list is zero-indexed
+		date.setDate(date.getDate() + 7);
+	}
+
+	return mondays;
+}
+
+function getRandomInt(min, max) {
+	min = parseInt(min);
+	max = parseInt(max);
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+// for debugging only, can be deleted later
+function getDayStr(day) {
+	switch (day) {
+		case 0:
+			return "sunday";
+			break;
+		case 1:
+			return "monday";
+			break;
+		case 2:
+			return "tuesday";
+			break;
+		case 3:
+			return "wednesday";
+			break;
+		case 4:
+			return "thursday";
+			break;
+		case 5:
+			return "friday";
+			break;
+		case 6:
+			return "saturday";
+			break;
+	}
 }
