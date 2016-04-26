@@ -18,6 +18,12 @@
 	:-ms-input-placeholder { /* Internet Explorer 10+ */
 		color: transparent;
 	}
+	
+	/* Fix dark themes in FF */
+	input[type=text] {
+		color: black;
+		background-color: white;
+	}
 }
 
 body {
