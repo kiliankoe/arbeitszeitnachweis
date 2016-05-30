@@ -193,9 +193,6 @@ function getRandomDist(days, stundenzahl_value) {
 		dist[i] = 0;
 	}
 	var tage = tagesform.wochentag;
-	if(tage.length<1) {
-		tage = [1,2,3,4,5];
-	}
 	var jahr = document.getElementById("jahr").value;
 	var monat = document.getElementById("monat").value-1;
 
