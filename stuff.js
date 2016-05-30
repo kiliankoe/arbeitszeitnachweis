@@ -5,7 +5,7 @@ kona.code = function() {
 	for (var i = inputs.length - 1; i >= 0; i--) {
 		inputs[i].style.fontFamily = "UnifrakturCook";
 	}
-}
+};
 kona.load();
 
 var urlParams;
@@ -55,7 +55,7 @@ window.onload = function () {
 					bemerkung.className = "bemerkung";
 					bemerkung.id = "bemerkung"+i;
 					bemerkung.type = "text";
-					td.appendChild(bemerkung)
+					td.appendChild(bemerkung);
 					break;
 				default:
 					break;
@@ -87,11 +87,11 @@ window.onload = function () {
 	var arbeitszeit = document.getElementById("arbeitszeit").value;
 	if (arbeitszeit)
 		generateStuff();
-}
+};
 
 function generateStuff() {
 	var jahr = document.getElementById("jahr").value;
-	var months = {"01":31, "02":(jahr%400==0||(jahr%4==0&&jahr%100!=0))?29:28, "03":31, "04":30, "05":31, "06":30, "07":31, "08":31, "09":30, "10":31, "11":30, "12":31};
+	var months = {"01":31, "02":(jahr%400===0||(jahr%4===0&&jahr%100!==0))?29:28, "03":31, "04":30, "05":31, "06":30, "07":31, "08":31, "09":30, "10":31, "11":30, "12":31};
 
 	var gesamtzahl = document.querySelectorAll("#gesamtzahlinput");
 	var stundenzahl = document.getElementById("arbeitszeit").value;
@@ -115,11 +115,11 @@ function generateStuff() {
 		if (bemerkungsfelder[i].value)
 			bemerkungen.push(bemerkungsfelder[i].value);
 	}
-	for (var i = 0; i < cometimesfelder.length; ++i) {
+	for (i = 0; i < cometimesfelder.length; ++i) {
 		if (cometimesfelder[i].value)
 			cometimes.push(cometimesfelder[i].value);
 	}
-	for (var i = 0; i < leavetimesfelder.length; ++i) {
+	for (i = 0; i < leavetimesfelder.length; ++i) {
 		if (leavetimesfelder[i].value)
 			leavetimes.push(leavetimesfelder[i].value);
 	}
@@ -128,10 +128,10 @@ function generateStuff() {
 
 	var verteilung = getDist(months[monat]);
 
-	for (var i = 0; i < zellen.length; i+=1) {
+	for (i = 0; i < zellen.length; i+=1) {
 		// console.log(verteilung.length);
-		if (stundenzahl != "" && i < verteilung.length) {
-			if (verteilung[i] == 0) {
+		if (stundenzahl !== "" && i < verteilung.length) {
+			if (verteilung[i] === 0) {
 				zellen[i].value = "";
 				document.querySelector("input#bemerkung"+(i+1)).value = "";
 				document.querySelector("input#kommenzeit"+(i+1)).value = "";
@@ -250,7 +250,7 @@ function getWeeklyDist(days) {
 // if the month ends in the middle of that week.
 function getMondays(month, year) {
 	var date = new Date(year, month, 0);
-	var month = date.getMonth();
+  month = date.getMonth();
 	var mondays = [];
 
 	date.setDate(1);
@@ -272,32 +272,18 @@ function getMondays(month, year) {
 function getRandomInt(min, max) {
 	min = parseInt(min);
 	max = parseInt(max);
-    return Math.floor(Math.random() * (max - min + 1)) + min;
+  return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
 // for debugging only, can be deleted later
 function getDayStr(day) {
 	switch (day) {
-		case 0:
-			return "sunday";
-			break;
-		case 1:
-			return "monday";
-			break;
-		case 2:
-			return "tuesday";
-			break;
-		case 3:
-			return "wednesday";
-			break;
-		case 4:
-			return "thursday";
-			break;
-		case 5:
-			return "friday";
-			break;
-		case 6:
-			return "saturday";
-			break;
+		case 0: return "sunday";
+		case 1: return "monday";
+		case 2: return "tuesday";
+		case 3: return "wednesday";
+		case 4: return "thursday";
+		case 5: return "friday";
+		case 6: return "saturday";
 	}
 }
