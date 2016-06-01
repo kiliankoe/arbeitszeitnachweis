@@ -90,6 +90,13 @@ window.onload = function () {
 };
 
 function generateStuff() {
+	if (numberOfCheckedWeekdays() == 0) {
+		document.querySelector("fieldset[name='wochentage']").style.color = "red";
+		return;
+	} else {
+		document.querySelector("fieldset[name='wochentage']").style.color = "#000";
+	}
+
 	var jahr = document.getElementById("jahr").value;
 	var months = {"01":31, "02":(jahr%400===0||(jahr%4===0&&jahr%100!==0))?29:28, "03":31, "04":30, "05":31, "06":30, "07":31, "08":31, "09":30, "10":31, "11":30, "12":31};
 
@@ -286,4 +293,12 @@ function getDayStr(day) {
 		case 5: return "friday";
 		case 6: return "saturday";
 	}
+}
+
+function numberOfCheckedWeekdays() {
+	var num = 0;
+	for (var i = 0; i < 7; ++i) {
+		num += tagesform.wochentag[i].checked;
+	}
+	return num;
 }
