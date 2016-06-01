@@ -18,7 +18,7 @@
 	:-ms-input-placeholder { /* Internet Explorer 10+ */
 		color: transparent;
 	}
-	
+
 	/* Fix dark themes in FF */
 	input[type=text] {
 		color: black;
@@ -81,6 +81,11 @@ sup {
 	width:90%;
 	margin: 0 5%;
 	border: 1px solid #000;
+}
+
+#addbookmark {
+	text-align: center;
+	margin-top: 10px;
 }
 
 @media print {
