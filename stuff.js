@@ -136,7 +136,6 @@ function generateStuff() {
 	var verteilung = getDist(months[monat]);
 
 	for (i = 0; i < zellen.length; i+=1) {
-		// console.log(verteilung.length);
 		if (stundenzahl !== "" && i < verteilung.length) {
 			if (verteilung[i] === 0) {
 				zellen[i].value = "";
@@ -147,10 +146,18 @@ function generateStuff() {
 				zellen[i].value = verteilung[i];
 				if (bemerkungen.length > 0)
 					document.querySelector("input#bemerkung"+(i+1)).value = bemerkungen[Math.floor(Math.random()*bemerkungen.length)];
-				if (cometimes.length > 0)
-					document.querySelector("input#kommenzeit"+(i+1)).value = cometimes[Math.floor(Math.random()*cometimes.length)];
-				if (leavetimes.length > 0)
-					document.querySelector("input#gehenzeit"+(i+1)).value = leavetimes[Math.floor(Math.random()*leavetimes.length)];
+				if (cometimes.length > 0){
+					var clock = cometimes[Math.floor(Math.random()*cometimes.length)];
+					var h = parseInt(clock.match(/^[\d]+/));
+					var m = parseInt(clock.match(/[\d]+$/));
+					document.querySelector("input#kommenzeit"+(i+1)).value = h + ":" + (m < 10 ? "0" + m : m);
+					if (14 > h && 11 < h + verteilung[i]){ // lunch time!
+						var lunchtime = getRandomInt(0, Math.min(3, verteilung[i])) * 30 + m;
+						m = lunchtime % 60;
+						h += Math.floor(lunchtime / 60);
+					}
+					document.querySelector("input#gehenzeit"+(i+1)).value = (h + verteilung[i]) + ":" + (m < 10 ? "0" + m : m);
+				}
 			}
 		} else {
 			zellen[i].value = "";
@@ -230,37 +237,48 @@ function getWeeklyDist(days) {
 
 	var year = document.getElementById("jahr").value;
 	var month = document.getElementById("monat").value-1;
-	var checked_days = tagesform.wochentag;
+	var checked_days = [...tagesform.wochentag].map(function(val){ return val.checked });
+
+	var first_checked = Math.min(...checked_days.map(function(val, ind){ return val ? ind : Infinity }));
+	var last_checked = Math.max(...checked_days.map(function(val, ind){ return val ? ind : -Infinity }));
 
 	var mondays = getMondays(month, year);
+	if (mondays[0] > 0)					// add partial week
+		mondays.unshift(mondays[0] - 7);
+
 	mondays.forEach(function(monday){
-		var stundenpaket = stundenzahl;
-		while (stundenpaket > 0) {
-			var rand = getRandomInt(monday, monday+6);
-			var validate /* such pun */ = new Date(year, month, rand);
-			// console.log("y:"+year+" m:"+month+" d:"+rand+" -> "+validate);
-			if (checked_days[validate.getDay()].checked) {
-				// console.log("bling!");
-				dist[rand-1] += 1;
-				stundenpaket -= 1;
-				// console.log("validate:" + getDayStr(validate.getDay()) + " shouldbe:" + rand % 7);
-				// console.log("day: " + getDayStr(validate.getDay()) + " - index: " + rand + "=" + dist[rand] + " - stundenpaket: " + stundenpaket);
+		// valid first and last day of week
+		var first = Math.max(monday + first_checked, 1);	
+		var last = Math.min(monday + last_checked, days);
+
+		// current monday's checked days
+		var checked_this_week = 0;
+		for (var i = first; i <= last; i++)
+			if (checked_days[i - monday])
+				checked_this_week++;
+
+		// if partial week use relative amount of hours
+		var remaining_hours = Math.round(stundenzahl * checked_this_week / numberOfCheckedWeekdays());
+		while (remaining_hours > 0) {
+			var rand = getRandomInt(first, last);
+			var validate = new Date(year, month, rand);
+			if (checked_days[validate.getDay()]) {
+				var h = getRandomInt(1, remaining_hours); // should result in less distributed results
+				dist[rand-1] += h;
+				remaining_hours -= h;
 			}
 		}
-		// console.log("--------------");
 	});
-	console.log(dist.length);
+
 	return dist;
 }
 
 // Return zero-indexed dates of mondays in a month, possibly omitting the last one
 // if the month ends in the middle of that week.
 function getMondays(month, year) {
-	var date = new Date(year, month, 0);
-  month = date.getMonth();
+	var date = new Date(year, month, 1);
+  	month = date.getMonth();
 	var mondays = [];
-
-	date.setDate(1);
 
 	// Get the first monday of month
 	while (date.getDay() !== 1) {
@@ -268,7 +286,7 @@ function getMondays(month, year) {
 	}
 
 	// save this and all other mondays
-	while (date.getMonth() === month && date.getDate() < 27) { // skipping mondays after the 28th, as partial weeks are stupid
+	while (date.getMonth() === month) { // skipping mondays after the 28th, as partial weeks are stupid -- ohh no, you don't
 		mondays.push(date.getDate() - 1); // -1 because final date list is zero-indexed
 		date.setDate(date.getDate() + 7);
 	}
