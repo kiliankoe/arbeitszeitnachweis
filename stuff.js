@@ -286,7 +286,7 @@ function getMondays(month, year) {
 	}
 
 	// save this and all other mondays
-	while (date.getMonth() === month) { // skipping mondays after the 28th, as partial weeks are stupid -- ohh no, you don't
+	while (date.getMonth() === month) {
 		mondays.push(date.getDate() - 1); // -1 because final date list is zero-indexed
 		date.setDate(date.getDate() + 7);
 	}
