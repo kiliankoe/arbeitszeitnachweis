@@ -14,4 +14,4 @@ http://kiliankoe.github.io/arbeitszeitnachweis/index.html?monat=02&jahr=2015&nam
 
 Wird die Wochenarbeitszeit im Formular selbst eingetragen füllt sich das Dokument selbständig mit zufälligen Werten an den Tagen, die links ausgewählt sind (default sind nur Wochentage). Ansonsten kann man natürlich die Arbeitszeiten auch manuell eintragen.
 
-`CMD/CTRL` + `P` und abgeben :)
+<kbd>CMD</kbd>/<kbd>CTRL</kbd> + <kbd>P</kbd> und abgeben :)
