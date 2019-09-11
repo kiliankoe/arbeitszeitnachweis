@@ -1,4 +1,4 @@
-@import url(http://fonts.googleapis.com/css?family=UnifrakturCook:700);
+@import url(https://fonts.googleapis.com/css?family=UnifrakturCook:700);
 
 @page {
 	size: auto;
@@ -77,10 +77,20 @@ sup {
 	margin: 0;
 }
 
-#settings input[type=button] {
+#settings input[type=button], #footnotesignlabel {
 	width:90%;
 	margin: 0 5%;
 	border: 1px solid #000;
+	display: block;
+	text-align: center;
+}
+
+#settings input[type=button]:hover, #footnotesignlabel:hover {
+	background: #fff;
+}
+
+#footnotesignlabel {
+	margin-top: 0.2rem;
 }
 
 #addbookmark {
@@ -100,7 +110,7 @@ sup {
 
 /* HEAD */
 
-input[type=text] {
+input[type=text], input[type=date] {
 	border: none;
 	margin-left: 2% !important;
 	width: 95%;
@@ -114,6 +124,10 @@ input[type=text] {
     -moz-box-sizing: border-box;
 	box-sizing: border-box;*/
 	font-size: 8pt;
+}
+
+input[type=file] {
+	display: none;
 }
 
 input#struktureinheit, input#laufzeit {
@@ -298,4 +312,21 @@ input#struktureinheit, input#laufzeit {
     position: absolute;
     z-index: 1000;
     width:200px;
+}
+
+#unterschriftzelle {
+	position: relative;
+}
+
+#unterschriftzelle span {
+	position: absolute;
+	bottom: 0;
+}
+
+#unterschriftzelle img {
+	position: absolute;
+	right: 0.5cm;
+	bottom: 0;
+	max-width: 5cm;
+	max-height: 1cm;
 }
