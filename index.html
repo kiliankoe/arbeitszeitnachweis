@@ -62,6 +62,12 @@
 				<input type="text" class="bemerkungstext" id="commenttext2" placeholder="Däumchen drehen" />
 				<input type="text" class="bemerkungstext" id="commenttext3" placeholder="Freizeit finden" />
 			</fieldset>
+			<fieldset name="footnote">
+				<legend class="hastooltip">Fußnote (?)<span class="tooltip">Fußnote mit Datum und Unterschrift</span></legend>
+				<input type="date" class="footnotetext" id="footnotedate" />
+				<input type="file" class="footnotetext" id="footnotesign" accept="image/*"/>
+				<label id="footnotesignlabel" for="footnotesign">Unterschrift auswählen</label>
+			</fieldset>
 			<input type="button" onclick="generateStuff()" name="regenerate" value="Aktualisieren"/>
 		</form>
 		<div id="addbookmark">
@@ -139,7 +145,7 @@
 
 	<table id="unterschrift">
 		<tr>
-			<td>&nbsp;</td><td>&nbsp;</td>
+			<td id="unterschriftzelle">&nbsp;</td><td>&nbsp;</td>
 		</tr>
 		<tr>
 			<td>Datum, Unterschrift Beschäftigte/r</td><td>Datum, Unterschrift Betreuer/in bzw. Vorgesetzte/r</td>

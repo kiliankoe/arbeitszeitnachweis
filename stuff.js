@@ -165,6 +165,7 @@ function generateStuff() {
 	}
 
 	calculateTotal();
+	generateUnterschrift();
 }
 
 function formatTime(x) {
@@ -397,5 +398,32 @@ function addBookmark() {
 			window.location.href = url;
 
 		alert('Press ' + (navigator.userAgent.toLowerCase().indexOf('mac') != - 1 ? 'Command/Cmd' : 'CTRL') + ' + D to bookmark this page.');
+	}
+}
+
+function generateUnterschrift() {
+	let datestring = document.getElementById("footnotedate").value;
+	let unterschriftfile = document.getElementById("footnotesign").files[0];
+
+	let unterschriftzelle = document.getElementById("unterschriftzelle");
+	while (unterschriftzelle.firstElementChild) {
+		unterschriftzelle.removeChild(unterschriftzelle.firstElementChild)
+	}
+
+	if (datestring != "") {
+		var span = document.createElement("span");
+		span.textContent = new Date(datestring).toLocaleDateString("de");
+		unterschriftzelle.appendChild(span);
+	}
+
+	if (unterschriftfile) {
+		var img = document.createElement("img");
+		unterschriftzelle.appendChild(img);
+
+		var reader = new FileReader();
+		reader.onload = function(e) {
+			img.src = e.target.result;
+		}
+		reader.readAsDataURL(unterschriftfile);
 	}
 }
