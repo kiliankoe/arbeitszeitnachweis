@@ -143,7 +143,7 @@ function generateStuff() {
 				document.querySelector("input#kommenzeit"+(i+1)).value = "";
 				document.querySelector("input#gehenzeit"+(i+1)).value = "";
 			} else {
-				zellen[i].value = verteilung[i];
+				zellen[i].value = formatTime(verteilung[i]);
 				if (bemerkungen.length > 0)
 					document.querySelector("input#bemerkung"+(i+1)).value = bemerkungen[Math.floor(Math.random()*bemerkungen.length)];
 				if (cometimes.length > 0){
@@ -165,6 +165,21 @@ function generateStuff() {
 	}
 
 	calculateTotal();
+}
+
+function formatTime(x) {
+	var formatoption = document.querySelector("input[name='formatoptions']:checked").value;
+	let hours = Math.floor(x);
+	let minutes = x - hours;
+	switch (formatoption) {
+		case "formatoption1":
+			return ((minutes > 0.01) ? x.toFixed(2) : hours + "").replace(".",",");
+		case "formatoption2":
+			return hours + ":" + (Math.floor(minutes * 60) + "").padStart(2, '0');
+		default:
+			console.log("Ya got something freaky going on there with the format options, mate...");
+			break;
+	}
 }
 
 function calculateTotal() {
@@ -192,6 +207,8 @@ function getDist(days) {
 			return getRandomDist(days, 4.0);
 		case "timeoption3":
 			return getWeeklyDist(days);
+		case "timeoption4":
+			return getEvenDist(days);
 		default:
 			console.log("Ya got something freaky going on there with the time options, mate...");
 			break;
@@ -269,6 +286,32 @@ function getWeeklyDist(days) {
 			}
 		}
 	});
+
+	return dist;
+}
+
+function getEvenDist(days) {
+	var stundenzahl = document.getElementById("arbeitszeit").value;
+
+	var year = document.getElementById("jahr").value;
+	var month = document.getElementById("monat").value-1;
+	var checked_days = [...tagesform.wochentag].map(function(val){ return val.checked });
+
+	var monday = getMondays(month, year)[0] - 1;
+	while (monday < 0) monday += 7;
+
+	var time_per_day = stundenzahl / checked_days.reduce(function(acc, curr) {
+		return acc + curr; // Add 1 or 0 to acc
+	}, 0);
+
+	var dist = [];
+	for (var i = days - 1; i >= 0; i--) {
+		dist[i] = 0;
+
+		if (checked_days[(i - monday + 7) % 7]) {
+			dist[i] = time_per_day;
+		}
+	}
 
 	return dist;
 }
