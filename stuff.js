@@ -150,13 +150,27 @@ function generateStuff() {
 					var clock = cometimes[Math.floor(Math.random()*cometimes.length)];
 					var h = parseInt(clock.match(/^[\d]+/));
 					var m = parseInt(clock.match(/[\d]+$/));
+					
+					h = (h + Math.floor(m / 60)) % 24
+					m %= 60
+
 					document.querySelector("input#kommenzeit"+(i+1)).value = h + ":" + (m < 10 ? "0" + m : m);
+
+					var deltaH = Math.floor(verteilung[i])
+					var deltaM = Math.round((verteilung[i] - deltaH) * 60)
 					if (14 > h && 11 < h + verteilung[i]){ // lunch time!
 						var lunchtime = getRandomInt(0, Math.min(3, verteilung[i])) * 30 + m;
-						m = lunchtime % 60;
-						h += Math.floor(lunchtime / 60);
+						deltaM += lunchtime % 60;
+						deltaH += Math.floor(lunchtime / 60);
 					}
-					document.querySelector("input#gehenzeit"+(i+1)).value = (h + verteilung[i]) + ":" + (m < 10 ? "0" + m : m);
+
+					var gehenH = h + deltaH
+					var gehenM = m + deltaM
+
+					gehenH = (gehenH + Math.floor(gehenM / 60)) % 24
+					gehenM %= 60
+
+					document.querySelector("input#gehenzeit"+(i+1)).value = gehenH + ":" + (gehenM < 10 ? "0" + gehenM : gehenM);
 				}
 			}
 		} else {
