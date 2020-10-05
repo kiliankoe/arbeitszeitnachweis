@@ -232,7 +232,14 @@ input#struktureinheit, input#laufzeit {
 	font-weight: normal;
 	text-align: left;
 	vertical-align: bottom;
-	padding-top: 7.4pt;
+}
+
+#kalender td {
+	height: 6mm;
+}
+
+#kalender .kopf td, #kalender .kopf th {
+	height: 18.2mm;
 }
 
 #kalender tr:first-child th {
