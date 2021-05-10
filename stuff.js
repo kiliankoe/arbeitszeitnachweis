@@ -210,7 +210,7 @@ function calculateTotal() {
 		}
 		total += hours;
 	}
-	gesamtzahl[0].value = total;
+	gesamtzahl[0].value = total.toLocaleString("de-DE", {maximumFractionDigits: 2});
 }
 
 function getDist(days) {
