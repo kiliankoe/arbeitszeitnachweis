@@ -204,7 +204,7 @@ function calculateTotal() {
 
 	for (var i = 0; i <= zellen.length - 1; i++) {
 		var hours = zellen[i].value;
-		hours = parseFloat(hours);
+		hours = parseFloat(hours.replace(',', '.'));
 		if (isNaN(hours)) {
 			continue;
 		}
