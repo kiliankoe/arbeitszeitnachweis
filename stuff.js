@@ -204,13 +204,13 @@ function calculateTotal() {
 
 	for (var i = 0; i <= zellen.length - 1; i++) {
 		var hours = zellen[i].value;
-		hours = parseFloat(hours);
+		hours = parseFloat(hours.replace(',', '.'));
 		if (isNaN(hours)) {
 			continue;
 		}
 		total += hours;
 	}
-	gesamtzahl[0].value = total;
+	gesamtzahl[0].value = total.toLocaleString("de-DE", {maximumFractionDigits: 2});
 }
 
 function getDist(days) {
